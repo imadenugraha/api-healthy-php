@@ -1,6 +1,7 @@
 <?php
 
 require_once __DIR__ . '/../vendor/autoload.php';
+require_once 'extensions_check.php';
 
 use Dotenv\Dotenv;
 
@@ -24,9 +25,7 @@ $response = [
     "database" => $conn ? "connected" : "failed"
 ];
 
-$response["extension"] = [
-    "curl" => extension_loaded("curl") ? "enabled" : "disabled",
-];
+$response["extensions"] = extensions_check(["curl"]);
 
 if(!$conn) {
     $response["status"] = "unhealthy";
