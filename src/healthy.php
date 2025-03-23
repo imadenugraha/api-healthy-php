@@ -1,19 +1,19 @@
 <?php
 
-header("Content-Type: application/json");
-
-require "../vendor/autoload.php";
+require_once __DIR__ . '/../vendor/autoload.php';
 
 use Dotenv\Dotenv;
 
-$dotenv = Dotenv::createImmutable("..");
+header("Content-Type: application/json");
+
+$dotenv = Dotenv::createImmutable(__DIR__ . '/..');
 $dotenv->load();
 
-$PG_HOST = $_ENV["POSTGRESS_HOST"];
-$PG_PORT = $_ENV["POSTGRESS_PORT"];
-$PG_USER = $_ENV["POSTGRESS_USER"];
-$PG_PASS = $_ENV["POSTGRESS_PASS"];
-$DB_NAME = $_ENV["POSTGRESS_DB_NAME"];
+$PG_HOST = $_ENV["POSTGRES_HOST"];
+$PG_PORT = $_ENV["POSTGRES_PORT"];
+$PG_USER = $_ENV["POSTGRES_USER"];
+$PG_PASS = $_ENV["POSTGRES_PASS"];
+$DB_NAME = $_ENV["POSTGRES_DB_NAME"];
 
 $conn = pg_connect("host=$PG_HOST port=$PG_PORT dbname=$DB_NAME user=$PG_USER password=$PG_PASS");
 
