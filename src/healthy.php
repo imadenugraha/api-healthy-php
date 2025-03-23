@@ -32,5 +32,5 @@ if($conn) {
     pg_close($conn);
 }
 
-http_response_code($response["status"] === "healty" ? 200 : 500);
+http_response_code($response["status"] === "healthy" ? 200 : 500);
 echo json_encode($response, JSON_PRETTY_PRINT);
