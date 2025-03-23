@@ -25,7 +25,7 @@ $response = [
     "database" => $conn ? "connected" : "failed"
 ];
 
-$response["extensions"] = extensions_check(["curl"]);
+$response["extensions"] = extensions_check(["curl", "pgsql"]);
 
 if(!$conn) {
     $response["status"] = "unhealthy";
