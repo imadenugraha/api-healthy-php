@@ -24,6 +24,10 @@ $response = [
     "database" => $conn ? "connected" : "failed"
 ];
 
+$response["extension"] = [
+    "curl" => extension_loaded("curl") ? "enabled" : "disabled",
+];
+
 if(!$conn) {
     $response["status"] = "unhealthy";
 }
